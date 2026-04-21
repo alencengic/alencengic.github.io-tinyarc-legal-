@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiny Arc — Personal Wellness Tracker</title>
+  <style>
+    :root {
+      --bg: #FFF9F4;
+      --bg2: #FDF3EA;
+      --text: #3A2E26;
+      --text-muted: #7A6558;
+      --heading: #5C3D2E;
+      --accent: #C88B6B;
+      --accent-dark: #A66D4E;
+      --card-bg: #FFFFFF;
+      --border: #E8D5C4;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1C1613;
+        --bg2: #221A15;
+        --text: #E8D5C4;
+        --text-muted: #9E8A7A;
+        --heading: #C88B6B;
+        --accent: #D4A574;
+        --accent-dark: #C88B6B;
+        --card-bg: #2A1F1A;
+        --border: #3D2E24;
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+    .nav-brand span {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px 72px;
+      text-align: center;
+    }
+    .hero-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 22px;
+      margin: 0 auto 28px;
+      display: block;
+      box-shadow: 0 8px 32px rgba(200, 139, 107, 0.25);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--heading);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 12px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+    .btn-primary svg { flex-shrink: 0; }
+
+    /* Features */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 48px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(200, 139, 107, 0.12);
+    }
+    .feature-icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Highlight band */
+    .band {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .band .section { padding: 56px 24px; }
+    .tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 500;
+      color: var(--text);
+      max-width: 640px;
+      line-height: 1.65;
+    }
+    .tagline strong { color: var(--accent); }
+
+    /* Footer */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      text-decoration: none;
+    }
+    .footer-logo img {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+    }
+    .footer-logo span {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 24px;
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .footer-links a {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 560px) {
+      .nav-links { display: none; }
+      .hero { padding: 56px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a class="nav-brand" href="#">
+    <img src="../assets/images/icon.png" alt="Tiny Arc icon" />
+    <span>Tiny Arc</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="terms-and-conditions.html">Terms</a></li>
+    <li><a href="medical-disclaimer.html">Disclaimer</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <img class="hero-icon" src="../assets/images/icon.png" alt="Tiny Arc" />
+  <h1>Your wellness,<br /><em>understood</em></h1>
+  <p>Track mood, sleep, food, and habits in one place. Tiny Arc surfaces patterns you didn't know were there — gently, privately, and at your own pace.</p>
+  <a class="btn-primary" href="#" aria-label="Download on the App Store">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+    </svg>
+    Download on the App Store
+  </a>
+</section>
+
+<!-- Features -->
+<hr class="divider" />
+<section class="section" id="features">
+  <p class="section-label">What's inside</p>
+  <h2>Everything you track, in one place</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🌤️</div>
+      <h3>Mood Logging &amp; Analytics</h3>
+      <p>Log how you feel throughout the day. Discover trends, patterns, and what influences your mood over time.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌙</div>
+      <h3>Sleep Tracking</h3>
+      <p>Integrates with Apple HealthKit to pull your sleep data automatically and surface meaningful insights.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🥗</div>
+      <h3>Food &amp; Nutrition</h3>
+      <p>Log meals, scan barcodes, and track calories and macros. Powered by the USDA FoodData Central database.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💧</div>
+      <h3>Water Intake</h3>
+      <p>Stay on top of hydration with quick water logging and daily progress tracking.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌦️</div>
+      <h3>Weather Correlations</h3>
+      <p>See how local weather affects your mood and energy — correlations you might never have noticed.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <h3>AI-Powered Insights</h3>
+      <p>Smart mood predictions and food recommendations based on your personal patterns, not generic advice.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <h3>Symptom Tracking</h3>
+      <p>Log physical and emotional symptoms alongside your other data to spot recurring patterns.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📓</div>
+      <h3>Daily Journal</h3>
+      <p>Capture thoughts, notes, and reflections. Your journal stays private and lives alongside your data.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Weekly Digest</h3>
+      <p>A concise weekly summary of your wellbeing trends, habits, and achievements delivered right in the app.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Tagline band -->
+<div class="band">
+  <div class="section">
+    <p class="tagline">
+      Tiny Arc was built on a simple idea: <strong>small observations, logged consistently, reveal big truths</strong> about your health and habits. No overwhelm. No judgment. Just your data, working for you.
+    </p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <a class="footer-logo" href="#">
+      <img src="../assets/images/icon.png" alt="Tiny Arc icon" />
+      <span>Tiny Arc</span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+      <li><a href="medical-disclaimer.html">Medical &amp; Health Disclaimer</a></li>
+      <li><a href="mailto:cengic.alen@yahoo.com">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Alen Cengic. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
