@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Tiny Arc</title>
+  <style>
+    :root {
+      --bg: #FFF9F4;
+      --text: #3A2E26;
+      --heading: #5C3D2E;
+      --accent: #C88B6B;
+      --card-bg: #FFFFFF;
+      --border: #E8D5C4;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1C1613;
+        --text: #E8D5C4;
+        --heading: #C88B6B;
+        --accent: #D4A574;
+        --card-bg: #2A1F1A;
+        --border: #3D2E24;
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 24px 20px 64px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 1.6rem;
+      color: var(--heading);
+      margin-bottom: 4px;
+    }
+    .effective-date {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 1.15rem;
+      color: var(--heading);
+      margin-top: 32px;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    h3 {
+      font-size: 1.02rem;
+      color: var(--heading);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    p, li {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+    ul, ol {
+      padding-left: 24px;
+      margin-bottom: 12px;
+    }
+    li { margin-bottom: 6px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .highlight-box {
+      background: var(--card-bg);
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    strong { color: var(--heading); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+    }
+    th {
+      background: var(--card-bg);
+      font-weight: 600;
+      color: var(--heading);
+    }
+  </style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="effective-date">Effective Date: June 27, 2026</p>
+
+<p>Tiny Arc ("we", "us", or "our") operates the Tiny Arc mobile application
+("App"). This Privacy Policy explains what information we collect, how we use
+it, who we share it with, and your rights regarding your personal data.</p>
+
+<p>By using the App you agree to the collection and use of information in
+accordance with this policy. If you do not agree, please do not use the App.</p>
+
+<div class="highlight-box">
+  <strong>Summary:</strong> We collect only the data needed to provide and
+  improve Tiny Arc. We do not sell your personal data. Health data from Apple
+  HealthKit is never used for advertising.
+</div>
+
+<h2>1. Information We Collect</h2>
+
+<h3>1.1 Information You Provide</h3>
+<p>When you create an account and use the App, you may provide:</p>
+<ul>
+  <li><strong>Account information:</strong> email address and password (managed
+    via Supabase Authentication).</li>
+  <li><strong>Profile information:</strong> name, age, height, weight, gender,
+    working days, sport days, and nutritional goals.</li>
+  <li><strong>Mood and productivity data:</strong> daily mood ratings,
+    productivity scores, and associated dates.</li>
+  <li><strong>Food and nutrition data:</strong> meal descriptions, calorie and
+    macronutrient values, water intake, and food product data retrieved via
+    barcode scanning.</li>
+  <li><strong>Symptom data:</strong> bloating levels, energy ratings, stool
+    consistency, and other digestive health indicators.</li>
+  <li><strong>Journal entries:</strong> free-text daily journal notes.</li>
+  <li><strong>Weight history:</strong> weight measurements over time.</li>
+</ul>
+
+<h3>1.2 Information Collected Automatically</h3>
+<ul>
+  <li><strong>Precise location data:</strong> if you grant permission, we access
+    your device's location at approximately 100-metre accuracy to retrieve local
+    weather data. Your raw latitude and longitude coordinates are transmitted to
+    our weather data provider (OpenWeatherMap) to fetch current conditions. We
+    store only the derived weather readings and a general location name (city
+    name) in our database — raw coordinates are not persisted on our
+    servers.</li>
+  <li><strong>Device and usage information:</strong> device type, operating
+    system version, app version, and general usage patterns necessary for the
+    App to function.</li>
+  <li><strong>Advertising identifiers:</strong> if you consent via Apple's App
+    Tracking Transparency (ATT) prompt or Android's ad ID permissions,
+    third-party ad networks may collect your device advertising identifier
+    (IDFA/Ad ID) and usage data to deliver and measure personalised
+    advertisements. This data may be used for tracking as defined by Apple.</li>
+</ul>
+
+<h3>1.3 Apple HealthKit Data</h3>
+<p>If you choose to connect Apple HealthKit, we read <strong>sleep analysis
+data</strong> (sleep duration and sleep category). This data is uploaded to our
+cloud database (Supabase) and linked to your user account so it can be synced
+across devices and used to generate sleep trend analytics and mood
+correlations.</p>
+<p>HealthKit data is:</p>
+<ul>
+  <li>Accessed only with your explicit authorisation.</li>
+  <li>Collected, stored, and linked to your identity for core App
+    functionality only.</li>
+  <li><strong>Never</strong> used for advertising, marketing, tracking, or
+    data-mining purposes.</li>
+  <li><strong>Never</strong> sold to or shared with third parties.</li>
+  <li><strong>Never</strong> shared with advertising networks including Google
+    AdMob.</li>
+  <li>Processed in accordance with
+    <a href="https://developer.apple.com/documentation/healthkit" target="_blank"
+    rel="noopener">Apple's HealthKit guidelines</a>.</li>
+</ul>
+
+<h2>2. How We Use Your Information</h2>
+<p>We use the information we collect to:</p>
+<ul>
+  <li>Provide, maintain, and improve the App's features and services.</li>
+  <li>Generate mood analytics, food impact analysis, weekly digests, and
+    wellness insights based on your tracked data.</li>
+  <li>Display weather-mood correlations using your location-based weather
+    data.</li>
+  <li>Sync your data across devices via your authenticated account.</li>
+  <li>Send push notifications (such as daily reminders and streak alerts) if
+    you have enabled them.</li>
+  <li>Retrieve nutritional information for food products via barcode scanning
+    using the USDA FoodData Central API.</li>
+  <li>Display advertisements through third-party ad networks.</li>
+  <li>Diagnose technical issues, prevent abuse, and improve the App.</li>
+</ul>
+
+<h2>3. Data Storage and Security</h2>
+<p>Your data is stored in two places:</p>
+<ul>
+  <li><strong>On your device:</strong> a local SQLite database stores your data
+    for offline access and fast performance.</li>
+  <li><strong>In the cloud:</strong> data is synced to our backend powered by
+    <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a>,
+    which uses PostgreSQL with Row Level Security (RLS). This means each user
+    can only access their own data at the database level.</li>
+</ul>
+<p>We implement reasonable technical and organisational measures to protect your
+data against unauthorised access, alteration, disclosure, or destruction.
+However, no method of electronic storage or transmission is 100% secure, and we
+cannot guarantee absolute security.</p>
+
+<h2>4. Third-Party Services</h2>
+<p>The App uses the following third-party services, each with its own privacy
+policy:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Purpose</th>
+      <th>Data Shared</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase</a></td>
+      <td>Authentication and cloud database</td>
+      <td>Account data, all user-submitted content</td>
+    </tr>
+    <tr>
+      <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google AdMob</a></td>
+      <td>Advertising</td>
+      <td>Device identifiers, ad interaction data</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat</a></td>
+      <td>In-app purchase management</td>
+      <td>Purchase history, subscription status, anonymous app user ID</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/health-privacy-policy/" target="_blank" rel="noopener">Apple HealthKit</a></td>
+      <td>Sleep data integration</td>
+      <td>Sleep analysis data (read from device, uploaded to Supabase linked to user ID)</td>
+    </tr>
+    <tr>
+      <td><a href="https://fdc.nal.usda.gov" target="_blank" rel="noopener">USDA FoodData Central</a></td>
+      <td>Nutritional data lookup</td>
+      <td>Barcode/search queries (no personal data)</td>
+    </tr>
+    <tr>
+      <td><a href="https://openweathermap.org/privacy-policy" target="_blank" rel="noopener">OpenWeatherMap</a></td>
+      <td>Local weather data</td>
+      <td>Precise location coordinates (latitude, longitude) transmitted per
+        request; no personal identifiers sent</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We do not sell, rent, or trade your personal data to any third party.</p>
+
+<h2>5. App Privacy Data Collection Summary</h2>
+<p>The following table summarises the data Tiny Arc collects, in line with
+Apple's App Privacy requirements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data Type</th>
+      <th>Collected</th>
+      <th>Linked to Identity</th>
+      <th>Used for Tracking</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email Address</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>App Functionality (account)</td>
+    </tr>
+    <tr>
+      <td>Health &amp; Fitness (sleep, mood, symptoms)</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>App Functionality</td>
+    </tr>
+    <tr>
+      <td>User Content (journal, food entries)</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>App Functionality</td>
+    </tr>
+    <tr>
+      <td>Precise Location</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>App Functionality</td>
+    </tr>
+    <tr>
+      <td>Purchases</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>App Functionality</td>
+    </tr>
+    <tr>
+      <td>Identifiers — User ID</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>App Functionality</td>
+    </tr>
+    <tr>
+      <td>Identifiers — Device ID (IDFA / Ad ID)</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Third-Party Advertising</td>
+    </tr>
+    <tr>
+      <td>Usage Data / Diagnostics (AdMob)</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Third-Party Advertising / Analytics</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Third-party data recipients:</strong> Google AdMob, RevenueCat,
+OpenWeatherMap, and Supabase (data processor).</p>
+
+<h2>6. Advertising and Tracking</h2>
+<p>The App displays advertisements through Google AdMob. AdMob and its mediation
+partners may collect device identifiers and usage data to serve and measure
+advertisements. On iOS, we request your consent through Apple's App Tracking
+Transparency (ATT) framework before any tracking occurs. On Android, the
+advertising ID permission is used.</p>
+<p>You can limit ad personalisation through your device settings:</p>
+<ul>
+  <li><strong>iOS:</strong> Settings &gt; Privacy &amp; Security &gt; Tracking</li>
+  <li><strong>Android:</strong> Settings &gt; Privacy &gt; Ads</li>
+</ul>
+
+<h2>7. Push Notifications</h2>
+<p>We may send push notifications for daily entry reminders, streak alerts, and
+achievement milestones. You can enable or disable notifications at any time
+through your device settings or within the App.</p>
+
+<h2>8. Data Retention</h2>
+<p>We retain your data for as long as your account is active. If you delete your
+account, we will delete your personal data from our servers within 30 days.
+Locally stored data on your device is removed when you uninstall the App.
+Anonymised or aggregated data that cannot identify you may be retained
+indefinitely for analytical purposes.</p>
+
+<h2>9. Your Rights</h2>
+<p>Depending on your jurisdiction, you may have the following rights:</p>
+<ul>
+  <li><strong>Access:</strong> request a copy of the personal data we hold about
+    you.</li>
+  <li><strong>Rectification:</strong> ask us to correct inaccurate data.</li>
+  <li><strong>Erasure:</strong> request deletion of your personal data.</li>
+  <li><strong>Restriction:</strong> ask us to restrict processing of your
+    data.</li>
+  <li><strong>Portability:</strong> receive your data in a structured,
+    commonly-used format. The App includes a data export feature that lets you
+    export your tracked data.</li>
+  <li><strong>Objection:</strong> object to processing of your data for certain
+    purposes.</li>
+  <li><strong>Withdraw consent:</strong> withdraw consent at any time where
+    processing is based on consent (such as HealthKit access or ad
+    tracking).</li>
+</ul>
+<p>To exercise any of these rights, contact us at
+<a href="mailto:cengic.alen@yahoo.com">cengic.alen@yahoo.com</a>. We will respond
+within 30 days.</p>
+
+<h2>10. European Economic Area (EEA) Users</h2>
+<p>If you are located in the EEA, the legal bases for processing your data
+are:</p>
+<ul>
+  <li><strong>Contract:</strong> processing necessary to provide the App's
+    services (account management, data sync, core features).</li>
+  <li><strong>Consent:</strong> HealthKit data access, location data,
+    personalised advertising, and push notifications.</li>
+  <li><strong>Legitimate interest:</strong> improving the App, diagnosing
+    technical issues, and preventing abuse.</li>
+</ul>
+<p>Your data is processed by Supabase, whose servers may be located outside the
+EEA. Supabase maintains appropriate safeguards for international data transfers
+in accordance with applicable data protection laws.</p>
+
+<h2>11. Children's Privacy</h2>
+<p>The App is not directed at children under the age of 16. We do not knowingly
+collect personal data from children under 16. If you become aware that a child
+has provided us with personal data, please contact us and we will take steps to
+delete that information.</p>
+
+<h2>12. Data Export</h2>
+<p>The App provides a built-in data export feature that allows you to download
+your tracked data (mood, food, symptoms, productivity, and more) in a portable
+format. You can access this feature from the Trends &amp; Analytics section of
+the App.</p>
+
+<h2>13. Changes to This Privacy Policy</h2>
+<p>We may update this Privacy Policy from time to time. If we make material
+changes, we will notify you through the App or by updating the "Effective Date"
+at the top of this page. Your continued use of the App after changes take effect
+constitutes acceptance of the updated policy.</p>
+
+<h2>14. Contact Us</h2>
+<p>If you have any questions, concerns, or requests regarding this Privacy Policy
+or your personal data, please contact us at:</p>
+<p><strong>Tiny Arc</strong><br />
+Email: <a href="mailto:cengic.alen@yahoo.com">cengic.alen@yahoo.com</a></p>
+
+</body>
+</html>
