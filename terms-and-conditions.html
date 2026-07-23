@@ -7,6 +7,7 @@
   <style>
     :root {
       --bg: #FFF9F4;
+      --text-muted: #7A6558;
       --text: #3A2E26;
       --heading: #5C3D2E;
       --accent: #C88B6B;
@@ -16,6 +17,7 @@
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #1C1613;
+        --text-muted: #9E8A7A;
         --text: #E8D5C4;
         --heading: #C88B6B;
         --accent: #D4A574;
@@ -29,9 +31,6 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
-      padding: 24px 20px 64px;
-      max-width: 720px;
-      margin: 0 auto;
     }
     h1 {
       font-size: 1.6rem;
@@ -70,9 +69,74 @@
       margin: 20px 0;
     }
     strong { color: var(--heading); }
-  </style>
+      nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+    .nav-brand span {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li { margin: 0; }
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 20px 64px;
+    }
+    @media (max-width: 560px) {
+      .nav-links { display: none; }
+    }
+</style>
 </head>
 <body>
+<nav>
+  <a class="nav-brand" href="index.html">
+    <img src="images/icon.png" alt="Tiny Arc icon" />
+    <span>Tiny Arc</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="terms-and-conditions.html">Terms</a></li>
+    <li><a href="privacy-policy.html">Privacy</a></li>
+    <li><a href="medical-disclaimer.html">Disclaimer</a></li>
+    <li><a href="support.html">Support</a></li>
+  </ul>
+</nav>
+<main class="container">
+
 
 <h1>Terms &amp; Conditions</h1>
 <p class="effective-date">Effective Date: March 24, 2026</p>
@@ -251,5 +315,6 @@ remaining provisions shall continue in full force and effect.</p>
 <p><strong>Tiny Arc</strong><br />
 Email: <a href="mailto:support@tinyarc.io">support@tinyarc.io</a></p>
 
+</main>
 </body>
 </html>
